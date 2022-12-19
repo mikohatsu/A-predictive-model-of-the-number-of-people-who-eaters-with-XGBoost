@@ -1,0 +1,79 @@
+<html>
+  <head> </head>
+  <style>
+    .date {
+      display: flex;
+    }
+    .hidden {
+      display: none;
+    }
+    input {
+      border: 1px solid black !important;
+    }
+  </style>
+  <link rel="stylesheet" href="./style.css" />
+  <body>
+    <form action="/result" method="post">
+      <div class="date">
+        <select name="day">
+          <option value="3" selected>월</option>
+          <option value="4">화</option>
+          <option value="2">수</option>
+          <option value="1">목</option>
+          <option value="0">금</option>
+        </select>
+        <select name="Month">
+          <option value="1" selected>1</option>
+          {% for i in range(2,13) %}
+          <option value="{{i}}">{{i}}</option>
+          {% endfor %}
+        </select>
+        <select name="Date">
+          <option value="1" selected>1</option>
+          {% for i in range(2,32) %}
+          <option value="{{i}}">{{i}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <br />
+      <div class="input_box">
+        <div class="hidden">
+          <span>Numbers :</span>
+          <input type="text" name="numbers" value="2500" id="numbers" />
+        </div>
+        <div class="hidden">
+          <span> dayoff :</span>
+          <input type="text" name="dayoff" value="80" id="dayoff" />
+        </div>
+        <div class="hidden">
+          <span> work :</span>
+          <input type="text" name="work" value="150" id="work" />
+        </div>
+        <div class="hidden">
+          <span> outsidework :</span>
+          <input type="text" name="outsidework" value="15" id="outsidework" />
+        </div>
+        <div class="hidden">
+          <span> workfhome :</span>
+          <input type="text" name="workfhome" value="100" id="workFromHome" />
+        </div>
+        <div>
+          <span> 밥 :</span>
+          <input type="text" name="bob" />
+        </div>
+        <div>
+          <span> 국 :</span>
+          <input type="text" name="soup" />
+        </div>
+        <div>
+          <span> 메인요리 :</span>
+          <input type="text" name="main" />
+        </div>
+
+        <input type="submit" value="모델실행" />
+      </div>
+    </form>
+    <div id="result">식수 인원 : {{y}}</div>
+  </body>
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css" />
+</html>
